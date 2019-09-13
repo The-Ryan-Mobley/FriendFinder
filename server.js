@@ -3,9 +3,12 @@ const express = require('express');
 const path = require('path');
 
 //.resolve(__dirname, '../app.js'));
-var app = express();
-const PORT = process.env.PORT || 3000;
+const app = express();
 require('./app/routing/htmmlRoutes.js')(app);
+require('./app/routing/apiRoutes.js')(app);
+
+const PORT = process.env.PORT || 1337;
+
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({
     extended: true
