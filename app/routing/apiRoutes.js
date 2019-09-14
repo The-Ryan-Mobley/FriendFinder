@@ -13,6 +13,9 @@ module.exports = (app)=>{
     app.post("/api/friends", function (req, res) {
         //reads friend JSON
         // req.body hosts is equal to the JSON post sent from the user take that data and add it to friends array
+        var newFriend = req.body;
+
+        newFriend.routeName = newFriend.name.replace(/\s+/g, "").toLowerCase();
     });
     
     
