@@ -1,16 +1,17 @@
 $(window).on('load', () => {
     //qLoop();
     checkData();
+    let user = undefined;
 
 
     $('#add-btn').on('click', (event) => {
 
-        let newFriend = {
+        user = {
             name: $('#name').val().trim(),
             image: $('#pic').val().trim(),
             score: grabSurvey()
         }
-        $.post("/api/friends", newFriend).then(function (data) {
+        $.post("/api/friends", user).then(function (data) {
             console.log('sending data', data);
             checkData();
         });
@@ -23,11 +24,7 @@ $(window).on('load', () => {
 
 function checkData() {
     $.get('/api/friends').then((data) => {
-        match(data, {
-            name: 'test',
-            image: 'https://helloworld.jpg',
-            score: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-        });
+        match(data, user);
         console.log(data);
     })
 }
