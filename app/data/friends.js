@@ -25,7 +25,12 @@ module.exports = friends =[
         name:'Hans Moleman',
         image:'http://i.imgur.com/WqPErYe.png',
         score:[3,2,1,4,3,1,1,1,1,5]
-    }
+    },
+    {
+        name: 'Nelson',
+        image:'https://assets.fxnetworks.com/cms/prod/2016/12/simpsonsworld_social_og_nelson_1200x1200.jpg',
+        score:[1,1,1,1,1,1,1,1,1,1]
+    },
 
 
 ];

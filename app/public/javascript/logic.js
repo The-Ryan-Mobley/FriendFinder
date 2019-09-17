@@ -1,19 +1,21 @@
 $(window).on('load', () => {
     //qLoop();
-    checkData();
-    let user = undefined;
+    //checkData();
+    matchLogic();
+    
 
 
     $('#add-btn').on('click', (event) => {
+        console.log('click');
 
-        user = {
+        let user = {
             name: $('#name').val().trim(),
             image: $('#pic').val().trim(),
             score: grabSurvey()
         }
+        console.log(user);
         $.post("/api/friends", user).then(function (data) {
-            console.log('sending data', data);
-            checkData();
+            //console.log('sending data', data);
         });
 
 
@@ -33,21 +35,13 @@ function grabSurvey() {
     let arr = [];
     for (let i = 0; i < 10; i++) {
         let val = $(`#${i}`).val();
-        arr.push(val);
+        console.log(parseInt(val));
+        arr.push(parseInt(val));
     }
     return arr;
 }
 
-function makeInput(qArr, index) {
-    let inp = $(`<div class="form-group"><label for="name">${qArr[index]}</label><input type ="number" class="friendForm" id=${index} name="survey" min="1" max="5"></div>`);
-    inp.appendTo('#survey-holder');
-}
 
-function qLoop() {
-    for (let i = 0; i < 10; i++) {
-        makeInput(questions, i);
-    }
-}
 
 function sendData() {
     $.post("/api/friends/" + searchedCharacter, (data) => {
@@ -58,11 +52,21 @@ function sendData() {
 function readData() {
     $.get('./api/friends').then((response) => {
         console.log(response);
+        
     });
 
 }
 
 
+function matchLogic(){//needs to house display friends
+    let i =0;
+    $.get('./api/friends').then((response) => {
+        console.log(response);
+        displayFriends(response,i);
+        
+    });
+
+}
 
 function displayFriends(friends,i) { //friends will be the list grabed from api i will be used as a recursive index
     

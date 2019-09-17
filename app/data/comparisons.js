@@ -9,14 +9,16 @@ module.exports ={
         return total;
     },
     match:()=> {
-        let userScore = calcScore(friends[friends.length-1]); //finds score for most recent input
+        let lastIndex = friends[friends.length-1];
+        let userScore = module.exports.calcScore(lastIndex); //finds score for most recent input
         let scoreArr = [] //will hold total values for each friend
         let matched = [];//will hold all objects whose scores match parameters(needs to be sent out to API)
         //let total = 0; used for front end appenditure
         //let displayIndexer = 0;
         friends.forEach(i => {
-            let friendCalc = calcScore(i);
+            let friendCalc = module.exports.calcScore(i);
             scoreArr.push(friendCalc);
+            console.log(scoreArr);
         });
     
         let min = userScore - 5;
@@ -25,7 +27,12 @@ module.exports ={
             if ((i <= max) && (i >= min)) {
                 console.log(i);
                 console.log('match found');
-                matched.push(friends[scoreArr.indexOf(i)]);
+                correlatedIndex = friends[scoreArr.indexOf(i)];
+                if((correlatedIndex.name !== lastIndex.name) && (matched.indexOf(correlatedIndex) === -1)){
+                    matched.push(correlatedIndex);
+
+                }
+                
             }
         });
         console.log(matched);
