@@ -4,8 +4,7 @@ const path = require('path');
 
 //.resolve(__dirname, '../app.js'));
 const app = express();
-require('./app/routing/htmmlRoutes.js')(app);
-require('./app/routing/apiRoutes.js')(app);
+
 
 const PORT = process.env.PORT || 1337;
 
@@ -15,7 +14,8 @@ app.use(express.urlencoded({
 }));
 app.use(express.json());
 
-
+require('./app/routing/htmmlRoutes.js')(app);
+require('./app/routing/apiRoutes.js')(app);
 app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
 });

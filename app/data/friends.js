@@ -14,6 +14,17 @@ module.exports = friends =[
         name: 'Ralph',
         image:'https://i.redd.it/apfjqm7kg9r01.png',
         score:[1,1,1,1,1,1,1,1,1,1]
+    },
+    {
+        name: 'Mr Sparkle',
+        image:'https://vignette.wikia.nocookie.net/simpsons/images/4/4e/MrSparkleTSTO.png/revision/latest?cb=20170613192529',
+        score:[1,2,1,2,1,1,1,2,1,1]
+
+    },
+    {
+        name:'Hans Moleman',
+        image:'http://i.imgur.com/WqPErYe.png',
+        score:[3,2,1,4,3,1,1,1,1,5]
     }
 
 

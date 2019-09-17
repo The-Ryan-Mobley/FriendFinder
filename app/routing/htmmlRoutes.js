@@ -12,6 +12,9 @@ module.exports = (app)=>{
     app.get("/logic.js", (req, res)=> {
         res.sendFile(path.join(__dirname, "../public/javascript/logic.js"));
     });
+    app.get("/style.css", (req, res)=> {
+        res.sendFile(path.join(__dirname, "../public/css/style.css"));
+    });
     app.get((req, res)=> {
         res.sendFile(path.join(__dirname, "../public/home.html"));
     });
