@@ -1,6 +1,7 @@
 $(window).on('load', () => {
     //qLoop();
     //checkData();
+    //let friendsArr = [];
     matchLogic();
     
 
@@ -22,6 +23,13 @@ $(window).on('load', () => {
 
 
     });
+    $('#friend-zone').on('click','.friend',(event)=>{
+        let targeted = $('#friend-zone').find(event.target);
+        let testvar = targeted.data('friend-dat');
+        
+
+    });
+
 });
 
 function checkData() {
@@ -60,9 +68,11 @@ function readData() {
 
 function matchLogic(){//needs to house display friends
     let i =0;
+    friendsArr =[];
     $.get('./api/friends').then((response) => {
         console.log(response);
         displayFriends(response,i);
+        
         
     });
 
@@ -70,11 +80,14 @@ function matchLogic(){//needs to house display friends
 
 function displayFriends(friends,i) { //friends will be the list grabed from api i will be used as a recursive index
     
-    let frienderino = $(`<div class="friend">`);
+    let frienderino = $(`<div class="friend" id="friend-${i}">`);
     let friendimg = $(`<img class="friend-pic">`);
     frienderino.appendTo($('#friend-zone'));
     friendimg.attr('src', friends[i].image);
     friendimg.appendTo(frienderino);
+    console.log(JSON.stringify(friends[i]));
+    frienderino.data('friend-dat',JSON.stringify(friends[i]));
+    friendsArr.push(friends[i]);
     i++;
     setTimeout(() => {
         if (i < friends.length) {
@@ -82,17 +95,13 @@ function displayFriends(friends,i) { //friends will be the list grabed from api 
         }
 
     },300);
+}
 
+function friendCard(friend,i){
+    //makes a card that is hidden on clicks
+    let friendInfo = $(`<div class="card friend-card">`)
+    let friendbody = $(`<div class='card-body>`);
+    let friendName = $(`<h3 class='friend-text>`);
 
-
-
-
-    // friends.forEach(i => {
-
-
-
-
-
-    // });
 }
 
