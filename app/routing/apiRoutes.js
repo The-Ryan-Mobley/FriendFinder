@@ -8,7 +8,8 @@ module.exports = (app)=>{
     app.get("/api/friends", function (req, res) {
 
         //will return list of possible friends
-        return res.json(friends);
+        let returnArr = comparison.match();
+        return res.json(returnArr);
 
     });
     app.post("/api/friends", function (req, res) {

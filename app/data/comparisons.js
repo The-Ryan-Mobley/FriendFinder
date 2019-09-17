@@ -12,18 +12,15 @@ module.exports ={
         let userScore = calcScore(friends[friends.length-1]); //finds score for most recent input
         let scoreArr = [] //will hold total values for each friend
         let matched = [];//will hold all objects whose scores match parameters(needs to be sent out to API)
-        let total = 0;
-        let displayIndexer = 0;
+        //let total = 0; used for front end appenditure
+        //let displayIndexer = 0;
         friends.forEach(i => {
-            //let total = 0;
             let friendCalc = calcScore(i);
             scoreArr.push(friendCalc);
         });
     
         let min = userScore - 5;
         let max = userScore + 5;
-        console.log(min);
-        console.log(max);
         scoreArr.forEach(i => {
             if ((i <= max) && (i >= min)) {
                 console.log(i);
