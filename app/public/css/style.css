@@ -45,7 +45,7 @@ select{
     justify-content: space-evenly;
 }
 .friend-title{
-    margin-top: 18%;
+    margin-top: 30%;
     display: block;
 }
 .friend {
@@ -87,6 +87,38 @@ select{
     margin: auto;
     width:60%;
 }
+@media (min-width: 481px) and (max-width: 780px) {
+    .friend-title{
+        margin-top:45%;
+        display: block;
+    }
+    h2{
+        font-size:1.5em;
+    }
+    .form-group{
+        font-size:1em;
+    }
+    .page-button{
+        display:block;
+        margin:auto;
+        margin-bottom:5%;
+    }
+   
+  
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    .friend{
+        margin:8%;
+    }
+    .page-button{
+        display:block;
+        margin:auto;
+        margin-bottom:5%;
+    }
+
+    
+  }
 @keyframes slide-up {
     0% {
         opacity: 0;
