@@ -25,14 +25,24 @@ module.exports ={
         Friendobjs.friends.forEach(i => {
             let friendCalc = module.exports.calcScore(i);
             scoreArr.push(friendCalc);
-            console.log(scoreArr);
         });
     
         let min = userScore - 5;
         let max = userScore + 5;
+        for(let i = 0; i < scoreArr.length;i++){ //used standard for loop to avoid issues with scope while sorting
+            for(let j=0; j < scoreArr.length;j++){
+                let temp = undefined;
+                if(scoreArr[i]>scoreArr[j]){
+                    let temp = scoreArr[i];
+                    scoreArr[i]=scoreArr[j];
+                    scoreArr[j]=temp;
+
+                }
+
+            }
+        }
         scoreArr.forEach(i => {
             if ((i <= max) && (i >= min)) {
-                console.log(i);
                 console.log('match found');
                 correlatedIndex = Friendobjs.friends[scoreArr.indexOf(i)];
                 if((correlatedIndex.name !== matchedUser.name) && (matched.indexOf(correlatedIndex) === -1)){

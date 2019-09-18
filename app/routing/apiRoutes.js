@@ -12,6 +12,13 @@ module.exports = (app)=>{
         return res.json(returnArr);
 
     });
+    app.get("/api/currentuser", function (req, res) {
+
+        //will return list of possible friends
+        
+        return res.json(Friendobjs.user);
+
+    });
     app.post("/api/friends", function (req, res) {
         //need to parse score beforepush
         // req.body hosts is equal to the JSON post sent from the user take that data and add it to friends array

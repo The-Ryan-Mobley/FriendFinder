@@ -36,6 +36,22 @@ $(window).on('load', () => {
     });
 
 });
+function drawUser(){
+    $.get('./api/currentuser').then((data)=>{
+        if(data.length === 0){
+            //default
+        }
+        else{
+
+        }
+
+    });
+}
+function userDOM(url){
+    let userDiv = $('<div class=user-container>');
+    let userPic = $(`<img href=${url}>`);
+    let userName = $(`<h2>`);
+}
 
 function checkData() {
     $.get('/api/friends').then((data) => {
