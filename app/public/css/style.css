@@ -1,3 +1,34 @@
+
+*{
+    font-family: 'Rock Salt', cursive;
+    color: #000000;
+}
+header{
+    
+
+}
+h1{
+    color:#eff783;
+    text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+}
+body{
+    background-color: #b8ddfc;
+}
+select{
+    display: block;
+    width: 60%;
+}
+#heading{
+    text-align: center;
+    margin:5%;
+}
+.title{
+    text-align: center;
+}
 #profile{
     margin-top:10%;
     position: absolute;
