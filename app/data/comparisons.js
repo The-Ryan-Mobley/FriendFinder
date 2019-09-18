@@ -1,6 +1,5 @@
 const Friendobjs = require('./friends.js');
 module.exports ={
-    //needs to run comparison from last index in array
     calcScore: (user)=> { //totals the users friend score then returns the value
         let total = 0;
         for (key in user.score) {
@@ -20,8 +19,6 @@ module.exports ={
         }
         let scoreArr = [] //will hold total values for each friend
         let matched = [];//will hold all objects whose scores match parameters(needs to be sent out to API)
-        //let total = 0; used for front end appenditure
-        //let displayIndexer = 0;
         Friendobjs.friends.forEach(i => {
             let friendCalc = module.exports.calcScore(i);
             scoreArr.push(friendCalc);
@@ -33,7 +30,7 @@ module.exports ={
             for(let j=0; j < scoreArr.length;j++){
                 let temp = undefined;
                 if(scoreArr[i]>scoreArr[j]){
-                    let temp = scoreArr[i];
+                    temp = scoreArr[i];
                     scoreArr[i]=scoreArr[j];
                     scoreArr[j]=temp;
 
@@ -52,8 +49,6 @@ module.exports ={
                 
             }
         });
-        console.log(matched);
-        
         return matched;
     
     }

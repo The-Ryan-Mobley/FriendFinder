@@ -3,7 +3,7 @@ module.exports = {
         {
             name: 'Homer',
             image: 'https://pbs.twimg.com/profile_images/818630169728454656/_F0UzZKc_400x400.jpg',
-            score: [5, 1, 2, 3, 5, 4, 2, 3, 1, 5]
+            score: [1, 1, 2, 3, 5, 4, 2, 3, 1, 5]
         },
         {
             name: 'Flanders',
@@ -55,6 +55,17 @@ module.exports = {
             name: 'Skinner',
             image: 'https://i.kym-cdn.com/entries/icons/original/000/022/017/thumb.png',
             score: [3, 4, 3, 3, 3, 3, 3, 3, 3, 3]
+
+        },
+        {
+            name:'Bart',
+            image:'https://images.complex.com/complex/image/upload/c_limit,dpr_auto,q_90,w_720/fl_lossy,pg_1/bart-simpson-the-simpsons_hpsrpk.jpg',
+            score:[2,2,2,2,3,2,1,4,2]
+        },
+        {
+            name:'Comic Book Guy',
+            image:'https://static.comicvine.com/uploads/square_small/11/111746/6555927-tapped_out_unlock_cbg.png',
+            score:[4,1,3,4,4,2,5,5,5]
 
         }
 
