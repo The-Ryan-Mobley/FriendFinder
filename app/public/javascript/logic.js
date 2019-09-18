@@ -58,7 +58,8 @@ function checkData() {
 function grabSurvey() {
     let arr = [];
     for (let i = 0; i < 10; i++) {
-        let val = $(`#${i}`).val();
+        let val = $(`#${i}`).attr('id');
+        
         console.log(parseInt(val));
         arr.push(parseInt(val));
     }
