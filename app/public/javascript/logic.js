@@ -11,17 +11,11 @@ $(window).on('load', () => {
             image: $('#pic').val().trim(),
             score: grabSurvey()
         }
-        console.log(user);
         $.post("/api/friends", user).then(function (data) {
-            window.location.href='/tables';
+            window.location.href='/';
             //console.log('sending data', data);
         });
-
-
-
-
     });
-
 });
 function drawUser(){
     $.get('./api/currentuser').then((data)=>{
@@ -58,9 +52,7 @@ function checkData() {
 function grabSurvey() {
     let arr = [];
     for (let i = 0; i < 10; i++) {
-        let val = $(`#${i}`).attr('id');
-        
-        console.log(parseInt(val));
+        let val = $(`#${i}`).val();
         arr.push(parseInt(val));
     }
     return arr;
