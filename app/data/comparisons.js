@@ -1,4 +1,4 @@
-const friends = require('./friends.js');
+const Friendobjs = require('./friends.js');
 module.exports ={
     //needs to run comparison from last index in array
     calcScore: (user)=> { //totals the users friend score then returns the value
@@ -9,13 +9,20 @@ module.exports ={
         return total;
     },
     match:()=> {
-        let lastIndex = friends[friends.length-1];
-        let userScore = module.exports.calcScore(lastIndex); //finds score for most recent input
+        let matchedUser
+        let userScore = 0;
+        if(Friendobjs.user.length === 0){
+             matchedUser = {name: 'null'};
+        }
+        else{
+            matchedUser = Friendobjs.user[0];
+            userScore = module.exports.calcScore(matchedUser); //finds score for most recent input
+        }
         let scoreArr = [] //will hold total values for each friend
         let matched = [];//will hold all objects whose scores match parameters(needs to be sent out to API)
         //let total = 0; used for front end appenditure
         //let displayIndexer = 0;
-        friends.forEach(i => {
+        Friendobjs.friends.forEach(i => {
             let friendCalc = module.exports.calcScore(i);
             scoreArr.push(friendCalc);
             console.log(scoreArr);
@@ -27,8 +34,8 @@ module.exports ={
             if ((i <= max) && (i >= min)) {
                 console.log(i);
                 console.log('match found');
-                correlatedIndex = friends[scoreArr.indexOf(i)];
-                if((correlatedIndex.name !== lastIndex.name) && (matched.indexOf(correlatedIndex) === -1)){
+                correlatedIndex = Friendobjs.friends[scoreArr.indexOf(i)];
+                if((correlatedIndex.name !== matchedUser.name) && (matched.indexOf(correlatedIndex) === -1)){
                     matched.push(correlatedIndex);
 
                 }

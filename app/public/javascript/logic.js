@@ -24,8 +24,13 @@ $(window).on('load', () => {
 
     });
     $('#friend-zone').on('click','.friend',(event)=>{
+        console.log('click');
         let targeted = $('#friend-zone').find(event.target);
-        let testvar = targeted.data('friend-dat');
+        console.log(targeted);
+        targeted.find('.friend-card').toggle('slow',()=>{
+            console.log('click');
+        });
+        
         
 
     });
@@ -99,9 +104,14 @@ function displayFriends(friends,i) { //friends will be the list grabed from api 
 
 function friendCard(friend,i){
     //makes a card that is hidden on clicks
-    let friendInfo = $(`<div class="card friend-card">`)
+    let friendInfo = $(`<div class="card friend-card" id=card-${i}>`)
     let friendbody = $(`<div class='card-body>`);
     let friendName = $(`<h3 class='friend-text>`);
+    friendInfo.appendTo($(`#friend-${i}`));
+    friendbody.appendTo(friendInfo);
+    friendName.appendTo(friendbody);
+    friendName.html(friend.name);
+    friendInfo.toggle();
 
 }
 
