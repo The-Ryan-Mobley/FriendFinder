@@ -1,12 +1,9 @@
 $(window).on('load', () => {
-    //qLoop();
-    //checkData();
-    //let friendsArr = [];
+    drawUser();
     matchLogic();
-    
-
 
     $('#add-btn').on('click', (event) => {
+        event.preventDefault();
         console.log('click');
 
         let user = {
@@ -16,22 +13,12 @@ $(window).on('load', () => {
         }
         console.log(user);
         $.post("/api/friends", user).then(function (data) {
+            window.location.href='/tables';
             //console.log('sending data', data);
         });
 
 
 
-
-    });
-    $('#friend-zone').on('click','.friend',(event)=>{
-        console.log('click');
-        let targeted = $('#friend-zone').find(event.target);
-        console.log(targeted);
-        targeted.find('.friend-card').toggle('slow',()=>{
-            console.log('click');
-        });
-        
-        
 
     });
 
@@ -40,17 +27,25 @@ function drawUser(){
     $.get('./api/currentuser').then((data)=>{
         if(data.length === 0){
             //default
+            userDOM(`https://www.chestnut-tree-house.org.uk/wp-content/uploads/2016/08/Mystery-person-e1470402666366.png`,
+            `new user`);
         }
         else{
+            userDOM(data[0].image,data[0].name);
 
         }
 
     });
 }
-function userDOM(url){
-    let userDiv = $('<div class=user-container>');
-    let userPic = $(`<img href=${url}>`);
+function userDOM(url,name){
+    let userDiv = $('<div class="friend">');
+    let userPic = $(`<img class="friend-pic">`);
     let userName = $(`<h2>`);
+    userDiv.appendTo('#profile');
+    userPic.appendTo(userDiv);
+    userPic.attr('src',url);
+    userName.appendTo('#profile')
+    userName.html(name);
 }
 
 function checkData() {
@@ -89,7 +84,6 @@ function readData() {
 
 function matchLogic(){//needs to house display friends
     let i =0;
-    friendsArr =[];
     $.get('./api/friends').then((response) => {
         console.log(response);
         displayFriends(response,i);
@@ -103,12 +97,12 @@ function displayFriends(friends,i) { //friends will be the list grabed from api 
     
     let frienderino = $(`<div class="friend" id="friend-${i}">`);
     let friendimg = $(`<img class="friend-pic">`);
+    let friendName = $(`<h2>`);
     frienderino.appendTo($('#friend-zone'));
     friendimg.attr('src', friends[i].image);
     friendimg.appendTo(frienderino);
-    console.log(JSON.stringify(friends[i]));
-    frienderino.data('friend-dat',JSON.stringify(friends[i]));
-    friendsArr.push(friends[i]);
+    friendName.appendTo(frienderino);
+    friendName.html(friends[i].name)
     i++;
     setTimeout(() => {
         if (i < friends.length) {
@@ -116,18 +110,5 @@ function displayFriends(friends,i) { //friends will be the list grabed from api 
         }
 
     },300);
-}
-
-function friendCard(friend,i){
-    //makes a card that is hidden on clicks
-    let friendInfo = $(`<div class="card friend-card" id=card-${i}>`)
-    let friendbody = $(`<div class='card-body>`);
-    let friendName = $(`<h3 class='friend-text>`);
-    friendInfo.appendTo($(`#friend-${i}`));
-    friendbody.appendTo(friendInfo);
-    friendName.appendTo(friendbody);
-    friendName.html(friend.name);
-    friendInfo.toggle();
-
 }
 

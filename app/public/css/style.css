@@ -1,5 +1,14 @@
+#profile{
+    margin-top:10%;
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    
+}
 #friend-zone{
-    position: relative;
+    margin-top:15%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -7,7 +16,8 @@
 .friend {
     max-width: 12.5em;
     max-height: 12.5em;
-    margin:1%;
+    margin:5%;
+    text-align: center;
 }
 
 .friend-pic {
