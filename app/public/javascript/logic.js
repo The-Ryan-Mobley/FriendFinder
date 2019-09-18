@@ -16,6 +16,10 @@ $(window).on('load', () => {
             //console.log('sending data', data);
         });
     });
+    $(`#home-button`).on('click',(event)=>{
+        window.location.href='/survey';
+
+    });
 });
 function drawUser(){
     $.get('./api/currentuser').then((data)=>{
