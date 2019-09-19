@@ -14,6 +14,8 @@ select{
     display: block;
     margin: 0 auto;
     width: 60%;
+    height:2em;
+    background-color: #eff783;
 }
 #heading{
 
@@ -45,8 +47,9 @@ select{
     justify-content: space-evenly;
 }
 .friend-title{
-    margin-top: 30%;
+    margin-top: 25%;
     display: block;
+    font-size:2.3em;
 }
 .friend {
     max-width: 12.5em;
@@ -86,6 +89,8 @@ select{
 .form-control{
     margin: auto;
     width:60%;
+    height:2em;
+    background-color: #eff783;
 }
 @media (min-width: 481px) and (max-width: 780px) {
     .friend-title{
