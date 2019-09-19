@@ -13,9 +13,10 @@ body{
     background-color: #b8ddfc;
 }
 select{
+    font-family: Georgia, 'Times New Roman', Times, serif;
     display: block;
     margin: 0 auto;
-    width: 60%;
+    width: 80%;
     height:2em;
     background-color: #eff783;
 }
@@ -35,11 +36,10 @@ select{
 }
 #profile{
     margin-top:10%;
-    display: inline-block;
+    display:block;
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
-    text-align: center;
     
 }
 #friend-zone{
@@ -90,8 +90,9 @@ select{
     font-size: 1.2em;
 }
 .form-control{
+    font-family: Georgia, 'Times New Roman', Times, serif;
     margin: auto;
-    width:60%;
+    width:80%;
     height:2em;
     background-color: #eff783;
 }
