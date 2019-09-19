@@ -102,6 +102,7 @@ select{
         display:block;
         margin:auto;
         margin-bottom:5%;
+        z-index: 2;
     }
    
   
