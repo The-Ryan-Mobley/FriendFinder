@@ -35,11 +35,11 @@ select{
 }
 #profile{
     margin-top:10%;
-    /* position: absolute; */
-    display: flex;
+    display: inline-block;
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
+    text-align: center;
     
 }
 #friend-zone{
