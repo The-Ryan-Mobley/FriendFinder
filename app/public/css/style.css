@@ -35,7 +35,8 @@ select{
     text-align: center;
 }
 #profile{
-    margin-top:10%;
+    margin-left:18%;
+    text-align: center;
     display:block;
     flex-wrap: wrap;
     align-content: center;
