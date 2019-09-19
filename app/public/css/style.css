@@ -47,6 +47,7 @@ select{
     justify-content: space-evenly;
 }
 .friend-title{
+    text-align: center;
     margin-top: 1%;
     display: block;
     font-size:2em;
@@ -94,7 +95,7 @@ select{
 }
 @media (min-width: 481px) and (max-width: 780px) {
     .friend-title{
-        margin-top:s5%;
+        margin-top:5%;
         display: block;
     }
     h2{
