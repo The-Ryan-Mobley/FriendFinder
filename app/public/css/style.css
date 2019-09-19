@@ -33,7 +33,7 @@ select{
 }
 #profile{
     margin-top:10%;
-    position: absolute;
+    /* position: absolute; */
     display: flex;
     flex-wrap: wrap;
     align-content: center;
@@ -47,14 +47,14 @@ select{
     justify-content: space-evenly;
 }
 .friend-title{
-    margin-top: 25%;
+    margin-top: 1%;
     display: block;
-    font-size:2.3em;
+    font-size:2em;
 }
 .friend {
     max-width: 12.5em;
     max-height: 12.5em;
-    margin:2%;
+    margin:4%;
     text-align: center;
 }
 
@@ -94,7 +94,7 @@ select{
 }
 @media (min-width: 481px) and (max-width: 780px) {
     .friend-title{
-        margin-top:45%;
+        margin-top:s5%;
         display: block;
     }
     h2{
