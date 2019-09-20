@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const comparison = require('../data/comparisons.js');
-var app = express();
+const app = express();
 
 const Friendobjs = require('../data/friends.js')
 module.exports = (app)=>{
