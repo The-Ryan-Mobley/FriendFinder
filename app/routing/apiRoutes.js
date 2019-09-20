@@ -13,7 +13,7 @@ module.exports = (app)=>{
         return res.json(Friendobjs.user);
     });
     app.post("/api/friends", function (req, res) {
-        var newFriend = req.body;
+        let newFriend = req.body;
         for(key in newFriend.score){ //converts score strings to ints
             newFriend.score[key] = parseInt(newFriend.score[key]);
         }
